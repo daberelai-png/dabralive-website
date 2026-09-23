@@ -1,0 +1,1 @@
+{"name":"dabralive-website","private":true,"scripts":{"dev":"node dev-server.mjs","build":"python3 build.py"}}
