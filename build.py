@@ -30,6 +30,7 @@ for name in ['solutions', 'technology', 'use-cases', 'about']:
     content = content.replace('<img ', '<img loading="lazy" decoding="async" ')
     sections.append(content)
 
+sections.append((root / 'src/legal.html').read_text(encoding='utf-8'))
 page = (head + '<body class="scrolling-site"><a class="skip" href="#main">Skip to content</a>'
         '<div class="site" id="top">' + header
         + '<main id="main" class="single-page">' + ''.join(sections) + '</main>'
@@ -38,6 +39,7 @@ page = anchors(page)
 page = re.sub(r'<button class="(cta(?: small)?)" data-pilot>(.*?)</button>', r'<a class="\1" href="mailto:info@wave22labs.com?subject=daberelive%20Studio%20Pilot">\2</a>', page, flags=re.S)
 page = re.sub(r'<dialog\b.*?</dialog>', '', page, flags=re.S)
 page = page.replace('</footer>', '<div class="contact-links"><a href="mailto:info@wave22labs.com">Contact us</a><a href="mailto:support@wave22labs.com">Technical support</a></div></footer>')
+page = page.replace('</footer>', '<div class="contact-links legal-links"><a href="#accessibility">Accessibility statement</a><a href="#privacy">Privacy information</a></div></footer>')
 page = page.replace('</body>', '<a class="back-to-top" href="#top"><span aria-hidden="true">↑</span> Back to Top</a></body>')
 switch = '<a class="language-switch" href="he.html" lang="he" hreflang="he" aria-label="מעבר לעברית">עברית <span aria-hidden="true">/ EN</span></a>'
 page = page.replace('<a class="cta small"', switch + '<a class="cta small"', 1)

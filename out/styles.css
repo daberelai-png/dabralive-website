@@ -322,6 +322,16 @@ html[lang=he] .hero-details{font-size:13px}
 .contact-links a{padding:10px 0;text-decoration:underline;text-underline-offset:4px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 /* Accessibility review: visible skip link, stable artwork and generous targets. */
+.legal-information{border-top:1px solid #294553;background:#0a141a;padding:0 32px}
+.legal-section{max-width:760px;margin-inline:auto;padding:48px 0;overflow-wrap:anywhere}
+.legal-section+.legal-section{border-top:1px solid #294553}
+.legal-section h2{font-size:28px;line-height:1.3;letter-spacing:0;margin:0 0 10px}
+.legal-section h3{font-size:19px;line-height:1.5;color:#99dff5;margin:26px 0 8px}
+.legal-section p{font-size:16px;line-height:1.8;color:#dbe5eb;margin:0 0 12px}
+.legal-section .legal-updated{font-size:14px;color:#b4c7d2}
+.legal-section>a{display:inline-flex;align-items:center;min-height:44px;font-size:16px;color:#99dff5;text-decoration:underline;text-underline-offset:4px}
+.contact-links{flex-wrap:wrap;row-gap:4px}.legal-links{border-top:1px solid #294553;padding-top:8px}
+@media(max-width:600px){.legal-information{padding-inline:20px}.legal-section{padding-block:32px}.legal-section h2{font-size:25px}.legal-links{column-gap:18px}}
 .skip:focus{position:fixed;z-index:100;top:10px;left:10px}
 .studio-light,.mosaic-tile>img,.rear-highlight{animation:none!important}
 .site header nav a,.site footer nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}
