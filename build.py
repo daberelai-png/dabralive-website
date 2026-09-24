@@ -7,6 +7,7 @@ from html.parser import HTMLParser
 root = Path(__file__).resolve().parent
 html = (root / 'src/approved-page.html').read_text(encoding='utf-8')
 head = html.split('<body>')[0]
+head = head.replace('</head>', '<link rel="stylesheet" href="engine.css"><script src="engine.js" defer></script></head>')
 header = re.search(r'<header>.*?</header>', html, re.S).group()
 footer = re.search(r'<footer.*?</footer>', html, re.S).group().replace('id="about"', 'id="footer"')
 dialog = html[html.index('<dialog'):html.index('</body>')]
@@ -22,6 +23,8 @@ def anchors(content):
 sections = [f'<section id="product" class="product-page scroll-section" aria-labelledby="hero-title">{hero}</section>']
 for name in ['solutions', 'technology', 'use-cases', 'about']:
     content = (root / f'src/pages/{name}.html').read_text(encoding='utf-8')
+    if name == 'technology':
+        content = content.replace('<p class="datasheet-scroll-hint">', (root / 'src/engine.html').read_text(encoding='utf-8') + '<p class="datasheet-scroll-hint">', 1)
     content = content.replace('page-title', f'{name}-title')
     content = re.sub(r'<(/?)h2\b', r'<\1h3', content)
     content = content.replace('<h1 ', '<h2 class="section-heading" ').replace('</h1>', '</h2>')
@@ -68,10 +71,10 @@ class HebrewPage(HTMLParser):
         if self.tags and self.tags[-1] == tag: self.tags.pop()
     def handle_data(self, data):
         key = data.strip()
-        translated = translations.get(key, key)
+        translated = key if 'svg' in self.tags else translations.get(key, key)
         # Isolate English terms and numeric ranges inside Hebrew sentences.
         value = escape(translated)
-        if self.tags and self.tags[-1] not in ['title', 'script', 'style']:
+        if self.tags and 'svg' not in self.tags and self.tags[-1] not in ['title', 'script', 'style']:
             chunks = re.split(r'([A-Za-z0-9][A-Za-z0-9 /–.()%+—-]*[A-Za-z0-9%)]|[A-Za-z0-9])', translated)
             value = ''.join('<bdi dir="ltr" lang="en">' + escape(v) + '</bdi>' if i % 2 else escape(v) for i,v in enumerate(chunks))
         self.parts.append(data[:len(data)-len(data.lstrip())] + value + data[len(data.rstrip()):] if key else data)

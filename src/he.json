@@ -150,5 +150,21 @@
   "Hosting, security and cookies": "אחסון, אבטחה ו-Cookies",
   "The website uses Sites hosting and Cloudflare infrastructure. Infrastructure providers may process technical data such as IP addresses, request details and security logs, and may use essential security cookies. Email is handled through Google Workspace. Processing by these providers may take place outside Israel. No advertising or analytics code is intentionally included in the current website source.": "האתר משתמש באחסון Sites ובתשתיות Cloudflare. ספקי התשתית עשויים לעבד נתונים טכניים כגון כתובות IP, פרטי בקשות ולוגים של אבטחה, ולהשתמש ב-Cookies חיוניים לאבטחה. הדואר מטופל באמצעות Google Workspace. עיבוד אצל ספקים אלה עשוי להתבצע מחוץ לישראל. בקוד האתר הנוכחי לא הוטמעו במכוון כלי פרסום או Analytics.",
   "Enquiries and your rights": "פניות והזכויות שלכם",
-  "Messages are directed to the team handling enquiries and processed through the email service. You can contact us to request access to or correction of personal information, or ask about deletion and retention. Requests will be considered according to applicable law and the circumstances of the enquiry. Contacting us does not by itself constitute consent to marketing messages.": "ההודעות מופנות לצוות המטפל בפניות ומעובדות באמצעות שירות הדואר. אפשר לפנות אלינו בבקשה לעיון במידע אישי או לתיקונו, או בשאלה לגבי מחיקה ומשך שמירת מידע. הבקשות ייבחנו בהתאם לדין החל ולנסיבות הפנייה. עצם הפנייה אלינו אינה מהווה הסכמה לקבלת הודעות שיווקיות."
+  "Messages are directed to the team handling enquiries and processed through the email service. You can contact us to request access to or correction of personal information, or ask about deletion and retention. Requests will be considered according to applicable law and the circumstances of the enquiry. Contacting us does not by itself constitute consent to marketing messages.": "ההודעות מופנות לצוות המטפל בפניות ומעובדות באמצעות שירות הדואר. אפשר לפנות אלינו בבקשה לעיון במידע אישי או לתיקונו, או בשאלה לגבי מחיקה ומשך שמירת מידע. הבקשות ייבחנו בהתאם לדין החל ולנסיבות הפנייה. עצם הפנייה אלינו אינה מהווה הסכמה לקבלת הודעות שיווקיות.",
+  "Illustration: microphones feed a mixer, local STT processing, the caption engine and a live screen with Hebrew captions.": "המחשה: מיקרופונים מעבירים Audio דרך Mixer, עיבוד STT מקומי ומנוע כתוביות אל מסך המציג כתוביות בעברית.",
+  "SIGNAL FLOW / only local STT": "זרימת האות / only local STT",
+  "From live audio to Hebrew captions.": "מ־Audio חי לכתוביות בעברית.",
+  "One local workflow: audio in, Hebrew captions out. Designed for continuous operation without an internet or cloud connection.": "תהליך מקומי אחד: Audio נכנס, כתוביות בעברית יוצאות. מיועד לפעולה רציפה ללא חיבור לאינטרנט או לענן.",
+  "Pause animation": "עצירת האנימציה",
+  "Illustrative workflow. Animation timing does not represent measured latency.": "המחשת תהליך העבודה. תזמון האנימציה אינו מייצג מדידת latency.",
+  "Microphones send live audio to the studio mixer.": "המיקרופונים מעבירים Audio חי אל ה־Mixer באולפן.",
+  "Audio mix": "ערבול Audio",
+  "The mixer provides one audio feed to the local system.": "ה־Mixer מספק הזנת Audio אחת למערכת המקומית.",
+  "Local STT": "STT מקומי",
+  "Speech is processed and the Hebrew text is refined locally.": "הדיבור מעובד והטקסט בעברית עובר עיבוד נוסף, הכול במערכת המקומית.",
+  "Caption engine": "מנוע כתוביות",
+  "Text is arranged into readable caption lines.": "הטקסט מסודר בשורות כתוביות קריאות.",
+  "Live output": "פלט חי",
+  "Hebrew captions appear on the production screen or overlay.": "כתוביות בעברית מופיעות במסך ההפקה או ב־Overlay.",
+  "The website includes keyboard navigation, a skip-to-content link, visible focus indicators, structured headings, image descriptions and responsive layouts. Decorative continuous animations have been disabled. The explanatory system animation has a pause control and respects reduced-motion preferences. Wide technical tables can be scrolled horizontally.": "האתר כולל ניווט במקלדת, קישור לדילוג לתוכן, סימון מיקוד נראה, כותרות מובנות, תיאורי תמונות ופריסה מותאמת למסכים שונים. אנימציות דקורטיביות מתמשכות בוטלו. אנימציית ההסבר על המערכת כוללת כפתור עצירה ומכבדת העדפה להפחתת תנועה. בטבלאות טכניות רחבות אפשר לגלול לרוחב."
 }
