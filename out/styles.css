@@ -249,3 +249,16 @@ html { scroll-padding-top: calc(var(--header-height, 108px) + 16px); }
 .datasheet-footer{display:flex;justify-content:space-between;gap:16px;padding:12px 20px;background:#10232e;color:#8dafc0;font-size:9px;letter-spacing:.05em;border-top:1px solid #365565}
 @media(max-width:800px){.scrolling-site .datasheet-section{padding:28px 18px 40px}.datasheet-header{grid-template-columns:1fr}.datasheet-header>div:first-child{padding:22px 18px}.datasheet-classification{border-left:0;border-top:1px solid #365565;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px}.datasheet-classification strong{font-size:15px}.datasheet-classification span{font-size:9px}.datasheet-classification span:last-child{max-width:130px;text-align:right}.datasheet-table{font-size:13px}.datasheet-parameter{width:34%}.datasheet-table th,.datasheet-table td{padding:11px 12px}.datasheet-table caption{padding:10px 12px;font-size:10px}.datasheet-table thead th,.datasheet-table .datasheet-group th{font-size:13px;letter-spacing:.01em}.datasheet-table tbody th[scope=row]{font-size:14px}.datasheet-detail{font-size:12px}.datasheet-footer{padding:12px;flex-direction:column;gap:6px}}
 @media(max-width:420px){.scrolling-site .datasheet-section{padding-inline:12px}.datasheet-table{font-size:12px}.datasheet-table th,.datasheet-table td{padding:10px 9px}.datasheet-parameter{width:36%}.datasheet-value{font-size:18px}.datasheet-classification span:first-child{display:none}.scrolling-site .datasheet .section-heading{font-size:23px;letter-spacing:-.055em}}
+
+/* Uniform single-line technical rows; narrow screens scroll within the table. */
+.datasheet-scroll{overflow-x:auto;overscroll-behavior-inline:contain}
+.datasheet-scroll:focus-visible{outline:2px solid #9ee8ff;outline-offset:-2px}
+.datasheet-scroll .datasheet-table{min-width:820px}
+.datasheet-scroll .datasheet-parameter{width:32%}
+.datasheet-scroll .datasheet-table th,.datasheet-scroll .datasheet-table td{height:46px;padding:0 18px;line-height:20px;vertical-align:middle;white-space:nowrap;overflow-wrap:normal}
+.datasheet-scroll .datasheet-table .datasheet-group th{height:46px;border-top-width:1px}
+.datasheet-scroll .datasheet-value{font-size:16px;line-height:20px}
+.datasheet-scroll-hint{display:none}
+.datasheet-conditions{padding:18px 20px;border-top:1px solid #365565;background:#0d1d27;font-family:Arial,Helvetica,sans-serif}
+.datasheet-conditions p{font-size:13px;line-height:1.6;color:#b1c5d1;margin:0}.datasheet-conditions p+p{margin-top:8px}.datasheet-conditions strong{color:#d3e6f0}
+@media(max-width:900px){.datasheet-scroll-hint{display:block;padding:10px 12px;font:12px/1.5 Arial,Helvetica,sans-serif;color:#99dff5;border-bottom:1px solid #365565}.datasheet-scroll .datasheet-table{font-size:14px}.datasheet-scroll .datasheet-table tbody th[scope=row],.datasheet-scroll .datasheet-table thead th,.datasheet-scroll .datasheet-table .datasheet-group th{font-size:14px}.datasheet-conditions{padding:16px}}

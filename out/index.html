@@ -8,38 +8,46 @@
       <div><p class="datasheet-kicker">WAVE22 LABS / daberelive</p><h2 class="section-heading" id="technology-title">Technical specifications</h2><p class="datasheet-description">Standalone offline Hebrew captioning appliance</p></div>
       <div class="datasheet-classification"><span>SYSTEM DATA SHEET</span><strong>only local STT</strong><span>CONTINUOUS OPERATION / 24–7</span></div>
     </div>
+    <p class="datasheet-scroll-hint">Scroll horizontally to view the full specification.</p>
+    <div class="datasheet-scroll" role="region" aria-label="Technical specification table" tabindex="0">
     <table class="datasheet-table">
       <caption>Performance, system architecture and studio interfaces</caption>
       <colgroup><col class="datasheet-parameter"><col></colgroup>
-      <thead><tr><th scope="col">Parameter</th><th scope="col">Specification / operating conditions</th></tr></thead>
+      <thead><tr><th scope="col">Parameter</th><th scope="col">Specification</th></tr></thead>
       <tbody>
         <tr class="datasheet-group"><th colspan="2" scope="rowgroup">01 — Recognition &amp; performance</th></tr>
-        <tr><th scope="row">Caption latency</th><td><strong class="datasheet-value">0.5–2.5 s</strong><span class="datasheet-detail">Depends on the speed–quality setting and source audio.</span></td></tr>
-        <tr><th scope="row">Word error rate (WER)</th><td><strong class="datasheet-value">1.4–5%</strong><span class="datasheet-detail">Depends on the speed–quality setting and audio conditions. Lower is better.</span></td></tr>
-        <tr><th scope="row">Operating selector</th><td>Speed priority / quality priority<span class="datasheet-detail">Balances caption response time against recognition quality.</span></td></tr>
-        <tr><th scope="row">Language &amp; layout</th><td>Hebrew speech recognition / right-to-left captions</td></tr>
+        <tr><th scope="row">Caption latency</th><td><strong class="datasheet-value">0.5–2.5 s</strong></td></tr>
+        <tr><th scope="row">Word error rate (WER)</th><td><strong class="datasheet-value">1.4–5%</strong></td></tr>
+        <tr><th scope="row">Operating selector</th><td>Speed priority / quality priority</td></tr>
+        <tr><th scope="row">Language &amp; layout</th><td>Hebrew / right-to-left captions</td></tr>
       </tbody>
       <tbody>
         <tr class="datasheet-group"><th colspan="2" scope="rowgroup">02 — System &amp; reliability</th></tr>
         <tr><th scope="row">System type</th><td>Standalone physical appliance</td></tr>
-        <tr><th scope="row">Processing</th><td>Local, on-device AI speech recognition</td></tr>
-        <tr><th scope="row">Operating duty</th><td><strong class="datasheet-value">24/7</strong><span class="datasheet-detail">Designed for continuous studio operation.</span></td></tr>
-        <tr><th scope="row">Internet / cloud</th><td><strong>Not required for live captioning</strong><span class="datasheet-detail">Offline operation is independent of internet disruptions and cloud outages.</span></td></tr>
+        <tr><th scope="row">Processing</th><td>On-device Hebrew STT</td></tr>
+        <tr><th scope="row">Operating duty</th><td><strong class="datasheet-value">24/7</strong></td></tr>
+        <tr><th scope="row">Internet / cloud</th><td><strong>Not required for live captioning</strong></td></tr>
       </tbody>
       <tbody>
         <tr class="datasheet-group"><th colspan="2" scope="rowgroup">03 — Input / output &amp; control</th></tr>
-        <tr><th scope="row">Audio input</th><td>Speech feed from a mixer or compatible audio interface</td></tr>
-        <tr><th scope="row">Caption output</th><td>Browser-based visual overlay / local viewer URL</td></tr>
-        <tr><th scope="row">Production integration</th><td>OBS Browser Source demo workflow<span class="datasheet-detail">Other production hosts assessed per installation.</span></td></tr>
-        <tr><th scope="row">Operator control</th><td>Local session and caption-output control<span class="datasheet-detail">The production team controls when captions go on air.</span></td></tr>
+        <tr><th scope="row">Audio input</th><td>Mixer / compatible audio interface</td></tr>
+        <tr><th scope="row">Caption output</th><td>Browser overlay / local viewer URL</td></tr>
+        <tr><th scope="row">Production integration</th><td>OBS Browser Source demo workflow</td></tr>
+        <tr><th scope="row">Operator control</th><td>Local session / on-air caption control</td></tr>
       </tbody>
       <tbody>
         <tr class="datasheet-group"><th colspan="2" scope="rowgroup">04 — Technology &amp; installation notes</th></tr>
-        <tr><th scope="row">Operating principle</th><td>Local AI converts live Hebrew audio into text. The system formats right-to-left captions and delivers a visual layer to the production workflow.</td></tr>
-        <tr><th scope="row">Validation</th><td>Performance, audio routing, hardware environment and recovery procedures are assessed with representative studio material.</td></tr>
-        <tr><th scope="row">Integration scope</th><td>Video remains in the existing production chain. SDI, genlock and embedded closed captions require a separate assessment.</td></tr>
+        <tr><th scope="row">Operating principle</th><td>Live audio → Hebrew text → caption overlay</td></tr>
+        <tr><th scope="row">Validation</th><td>Studio-specific performance &amp; integration checks</td></tr>
+        <tr><th scope="row">Integration scope</th><td>Existing video chain / separate broadcast assessment</td></tr>
       </tbody>
     </table>
+    </div>
+    <div class="datasheet-conditions">
+      <p><strong>Performance:</strong> Latency and WER depend on the speed–quality setting and source audio. The selector balances response time against recognition quality; lower WER is better.</p>
+      <p><strong>Operation:</strong> Designed for continuous 24/7 use. Live captioning runs offline, independently of internet disruptions and cloud outages.</p>
+      <p><strong>Installation:</strong> Validate performance, audio routing, hardware and recovery with studio material. Other production hosts, SDI, genlock and embedded closed captions require a separate assessment.</p>
+    </div>
     <div class="datasheet-footer"><span>daberelive / TECHNICAL OVERVIEW</span><span>OFFLINE · ON-DEVICE · HEBREW RTL</span></div>
   </div>
 </section>
