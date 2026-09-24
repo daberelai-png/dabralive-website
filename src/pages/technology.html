@@ -1,51 +1,36 @@
-<section class="technical-sheet" aria-labelledby="page-title">
-  <div class="technical-heading">
-    <div><p class="eyebrow">TECHNICAL / SYSTEM OVERVIEW</p><h1 id="page-title">Built for live Hebrew.</h1></div>
-    <p class="technical-summary">A standalone, offline captioning appliance.<br>Designed for continuous 24/7 studio operation.</p>
-  </div>
-  <dl class="performance-strip" aria-label="Performance overview">
-    <div><dt>Caption latency</dt><dd>0.5–2.5 <span>s</span></dd><p>Adjustable speed–quality balance</p></div>
-    <div><dt>Word error rate · WER</dt><dd>1.4–5<span>%</span></dd><p>Depending on the selected operating setting</p></div>
-    <div><dt>Standalone operation</dt><dd class="performance-local">24/7</dd><p>Designed for continuous, offline operation</p></div>
-  </dl>
-  <p class="performance-note">Performance ranges depend on the speed–quality setting and source audio. Latency and WER should be evaluated together on representative programme material. WER is the word error rate; lower is better.</p>
-  <div class="technical-grid">
-    <div class="specification-block">
-      <table class="specification-table">
-        <caption>System specifications<span>Capabilities &amp; studio integration</span></caption>
-        <thead><tr><th scope="col">Parameter</th><th scope="col">Specification</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Language</th><td>Hebrew speech recognition with right-to-left caption presentation.</td></tr>
-          <tr><th scope="row">Latency</th><td><strong>0.5–2.5 seconds</strong>, depending on the speed–quality setting.</td></tr>
-          <tr><th scope="row">Word error rate</th><td><strong>1.4–5% WER</strong>, depending on the speed–quality setting and audio conditions.</td></tr>
-          <tr><th scope="row">Operating control</th><td>Speed–quality selector to prioritise faster response or recognition quality.</td></tr>
-          <tr><th scope="row">System architecture</th><td>Standalone physical appliance with local, on-device speech recognition.</td></tr>
-          <tr><th scope="row">Offline operation</th><td>Live captioning runs without an internet connection or cloud transcription services.</td></tr>
-          <tr><th scope="row">Continuous operation</th><td>Designed for 24/7 use, with the operating environment and recovery procedures validated during installation.</td></tr>
-          <tr><th scope="row">Reliability</th><td>Dedicated local hardware keeps live recognition independent of internet disruptions and cloud-service outages.</td></tr>
-          <tr><th scope="row">Audio input</th><td>Programme speech feed from a mixer or compatible audio interface. Capture and routing are agreed per installation.</td></tr>
-          <tr><th scope="row">Caption output</th><td>Browser-based caption overlay through a local viewer URL.</td></tr>
-          <tr><th scope="row">Production integration</th><td>OBS Browser Source demo workflow. Other production hosts are validated for the target installation.</td></tr>
-          <tr><th scope="row">Operator control</th><td>Local session and caption-output control. The production team controls when captions go on air.</td></tr>
-        </tbody>
-      </table>
-      <p class="integration-note">Integration scope: video stays in the existing production chain. SDI, genlock and embedded closed-caption delivery require a separate integration assessment.</p>
-    </div>
-    <aside class="technology-explainer" aria-label="Technology and operating profile">
-      <div class="technical-explanation">
-        <p class="eyebrow">LOCAL AI · OFFLINE BY DESIGN</p>
-        <h2>Speech to captions.<br>Inside your studio.</h2>
-        <p>The system converts a live Hebrew audio feed into readable captions using local AI speech recognition. Captions are presented in a right-to-left layout and delivered as a visual layer to the production workflow.</p>
-        <p>A dedicated physical appliance keeps recognition and caption generation inside the studio. The live workflow operates offline, without relying on internet connectivity or cloud-service availability.</p>
-      </div>
-      <div class="operating-profile">
-        <p class="eyebrow">SPEED–QUALITY CONTROL</p>
-        <h2>Choose the priority.</h2>
-        <div class="profile-row"><strong>Speed priority</strong><p>Favour shorter caption delay for time-sensitive live coverage.</p></div>
-        <div class="profile-row"><strong>Quality priority</strong><p>Allow more processing time to prioritise recognition quality.</p></div>
-        <p class="profile-note">The selector balances latency and WER within the published ranges. The appropriate setting is assessed with your programme audio.</p>
-      </div>
-      <div class="technical-pilot"><h2>Validate in your studio.</h2><p>Review audio quality, names, overlapping speakers and caption timing in the intended production setup.</p><button type="button" class="text-link" data-pilot>Discuss a studio pilot <span aria-hidden="true">→</span></button></div>
-    </aside>
+<section class="technical-sheet technical-v2" aria-labelledby="page-title">
+  <div class="technical-document">
+    <div class="technical-title"><p class="eyebrow">TECHNICAL SPECIFICATIONS</p><h1 id="page-title">Standalone. Offline.<br>Built for the studio.</h1><p>A dedicated physical appliance for live Hebrew captions.<br>Local AI processing, designed for continuous 24/7 operation.</p></div>
+    <dl class="technical-metrics" aria-label="Performance overview">
+      <div><dt>Caption latency</dt><dd>0.5–2.5 <span>s</span></dd></div>
+      <div><dt>Word error rate</dt><dd>1.4–5<span>%</span></dd></div>
+      <div><dt>Continuous operation</dt><dd>24/7</dd></div>
+    </dl>
+    <div class="technical-balance"><h2>Speed or quality. Your priority.</h2><p>The operating selector balances faster caption delivery against recognition quality. Latency and WER vary within the ranges above, depending on the setting and source audio. Lower WER means fewer word errors.</p></div>
+    <table class="technical-specs">
+      <caption>System at a glance</caption>
+      <thead><tr><th scope="col">Parameter</th><th scope="col">Specification</th></tr></thead>
+      <tbody>
+        <tr class="spec-group"><th colspan="2" scope="rowgroup">01 / Captioning</th></tr>
+        <tr><th scope="row">Language</th><td>Hebrew speech recognition; right-to-left captions.</td></tr>
+        <tr><th scope="row">Performance</th><td>0.5–2.5 s latency · 1.4–5% WER.</td></tr>
+        <tr><th scope="row">Operating profile</th><td>Adjustable speed–quality balance.</td></tr>
+      </tbody>
+      <tbody>
+        <tr class="spec-group"><th colspan="2" scope="rowgroup">02 / Independence &amp; reliability</th></tr>
+        <tr><th scope="row">System</th><td>Standalone physical appliance. On-device AI processing.</td></tr>
+        <tr><th scope="row">Connectivity</th><td>Live captioning works offline. No internet or cloud transcription required.</td></tr>
+        <tr><th scope="row">Continuity</th><td>Designed for 24/7 use, independent of internet disruptions and cloud outages.</td></tr>
+      </tbody>
+      <tbody>
+        <tr class="spec-group"><th colspan="2" scope="rowgroup">03 / Studio integration</th></tr>
+        <tr><th scope="row">Audio input</th><td>Speech feed from a mixer or compatible audio interface.</td></tr>
+        <tr><th scope="row">Caption output</th><td>Browser overlay via a local viewer URL.</td></tr>
+        <tr><th scope="row">Production host</th><td>OBS Browser Source demo workflow. Other hosts assessed per installation.</td></tr>
+        <tr><th scope="row">Operator control</th><td>Local session control. Your team decides when captions go on air.</td></tr>
+      </tbody>
+    </table>
+    <div class="technical-principle"><h2>The technology, simply.</h2><p>Live studio audio is converted into Hebrew text by local AI speech recognition. The system arranges the text as readable right-to-left captions and delivers a visual overlay to your production workflow.</p></div>
+    <div class="technical-notes"><p><strong>Installation:</strong> Audio routing, hardware environment, recovery procedures and performance are validated with representative studio material.</p><p><strong>Integration:</strong> Video remains in your production chain. SDI, genlock and embedded closed captions require a separate assessment.</p></div>
   </div>
 </section>
