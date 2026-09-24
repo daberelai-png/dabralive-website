@@ -5,7 +5,6 @@
   }
   syncLanguageLink();
   window.addEventListener('hashchange', syncLanguageLink);
-  const pilot = document.querySelector('#pilot');
   const header = document.querySelector('.site > header');
   const sections = [...document.querySelectorAll('main > section[id]')];
   const navLinks = [...document.querySelectorAll('header nav a, footer nav a')];
@@ -44,8 +43,6 @@
     if (tab) { selectTechTab(tab); return; }
     const connection = event.target.closest('button[data-connection]');
     if (connection) { selectConnection(connection); return; }
-    if (event.target.closest('[data-pilot]')) { pilot.showModal(); return; }
-    if (event.target.closest('#pilot .close, #dismiss')) pilot.close();
   });
   document.addEventListener('keydown', event => {
     const tab = event.target.closest('.tech-tabs [role="tab"]');
@@ -59,11 +56,6 @@
     }
     const connection = event.target.closest('button[data-connection]');
     if (event.key === 'Escape' && connection) selectConnection(connection, false);
-  });
-  pilot?.addEventListener('click', event => {
-    if (event.target !== pilot) return;
-    const r = pilot.getBoundingClientRect();
-    if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) pilot.close();
   });
 
   let queued = false;

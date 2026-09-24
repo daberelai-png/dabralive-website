@@ -35,8 +35,12 @@ page = (head + '<body class="scrolling-site"><a class="skip" href="#main">Skip t
         + '<main id="main" class="single-page">' + ''.join(sections) + '</main>'
         + footer + '</div>' + dialog + '</body></html>')
 page = anchors(page)
+page = re.sub(r'<button class="(cta(?: small)?)" data-pilot>(.*?)</button>', r'<a class="\1" href="mailto:info@wave22labs.com?subject=daberelive%20Studio%20Pilot">\2</a>', page, flags=re.S)
+page = re.sub(r'<dialog\b.*?</dialog>', '', page, flags=re.S)
+page = page.replace('</footer>', '<div class="contact-links"><a href="mailto:info@wave22labs.com">Contact us</a><a href="mailto:support@wave22labs.com">Technical support</a></div></footer>')
+page = page.replace('</body>', '<a class="back-to-top" href="#top"><span aria-hidden="true">↑</span> Back to Top</a></body>')
 switch = '<a class="language-switch" href="he.html" lang="he" hreflang="he" aria-label="מעבר לעברית">עברית <span aria-hidden="true">/ EN</span></a>'
-page = page.replace('<button class="cta small"', switch + '<button class="cta small"', 1)
+page = page.replace('<a class="cta small"', switch + '<a class="cta small"', 1)
 page = page.replace('</head>', '<link rel="alternate" hreflang="en" href="https://dabrelive.com/"><link rel="alternate" hreflang="he" href="https://dabrelive.com/he.html"></head>')
 (root / 'out/index.html').write_text(page, encoding='utf-8')
 
