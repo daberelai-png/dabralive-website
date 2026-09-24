@@ -151,3 +151,80 @@ header .cta.small{letter-spacing:.04em;min-height:40px;padding:0 18px}
   .site header .cta.small { gap: 0; padding-inline: 12px; font-size: 11px; min-height: 38px; }
   .site header .cta.small span { display: none; }
 }
+
+/* Continuous page: each section owns its natural height. */
+html { scroll-padding-top: calc(var(--header-height, 108px) + 16px); }
+.scrolling-site .site { height: auto; min-height: 100svh; overflow: visible; }
+.scrolling-site .site > header {
+  position: sticky; top: 0; z-index: 20;
+  background: #080f14f5; backdrop-filter: blur(16px);
+}
+.scrolling-site .site > main { display: block; flex: none; }
+.scrolling-site .scroll-section { border-bottom: 1px solid #283e49; }
+.scrolling-site nav a[aria-current="location"] {
+  color: #00caff; text-decoration: underline; text-underline-offset: 9px;
+}
+.scrolling-site .product-page { display: block; }
+.scrolling-site .product-page .hero { min-height: 620px; height: calc(100svh - 156px); max-height: 880px; overflow: hidden; }
+.scrolling-site .product-page .hero-stage {
+  position: absolute; inset: 0 0 0 auto; height: 100%; width: auto;
+  aspect-ratio: 1672 / 941; max-width: none;
+  mask-image: linear-gradient(to right, transparent, #000 14%);
+}
+.scrolling-site .product-page .hero h1 { font-size: clamp(38px, 4.1vw, 70px); }
+.scrolling-site .product-page .sectors { min-height: 48px; }
+.scrolling-site .studio-panel { min-height: 720px; }
+.scrolling-site .panel-copy {
+  position: relative; top: auto; transform: none; padding: 64px 0 64px 4vw;
+}
+.scrolling-site .section-heading { font-size: clamp(36px, 3.6vw, 60px); line-height: 1.07; letter-spacing: -.04em; margin: 16px 0 24px; }
+.scrolling-site .engineering-page { min-height: 760px; padding: 72px 4vw; gap: 4vw; }
+.scrolling-site .engineering-intro .section-heading { font-size: clamp(36px, 3.6vw, 58px); }
+.scrolling-site .tech-panel h3 { font-size: clamp(25px, 2.5vw, 36px); line-height: 1.12; letter-spacing: -.03em; margin: 12px 0 24px; }
+.scrolling-site .mosaic-page { min-height: 780px; padding: 64px 4vw; gap: 32px; }
+.scrolling-site .mosaic-heading .section-heading { font-size: clamp(36px, 4.3vw, 64px); margin: 10px 0 0; }
+.scrolling-site .mosaic-heading .section-heading br { display: none; }
+.scrolling-site .mosaic-heading .section-heading span { color: #7dd3ee; margin-left: .2em; }
+.scrolling-site .studio-mosaic { min-height: 520px; }
+.scrolling-site .mosaic-caption h3 { font-size: clamp(25px, 2.7vw, 42px); line-height: 1.02; letter-spacing: -.035em; margin: 0 0 12px; }
+.scrolling-site .mosaic-news h3 { font-size: clamp(40px, 4.8vw, 70px); }
+.scrolling-site .mosaic-stage h3 { font-size: clamp(24px, 2.5vw, 36px); }
+.scrolling-site .mosaic-public h3 { font-size: clamp(24px, 2.2vw, 34px); }
+.scrolling-site #about { display: flex; align-items: center; }
+.scrolling-site .site > footer { height: auto; min-height: 90px; padding-block: 20px; }
+@media (max-width: 1100px) and (min-width: 901px) {
+  .scrolling-site .rear-panel .panel-copy { width: 47%; }
+  .scrolling-site .mosaic-public h3 { font-size: 24px; }
+}
+@media (max-width: 900px) {
+  .scrolling-site .product-page .hero { height: auto; min-height: 0; max-height: none; }
+  .scrolling-site .product-page .hero-stage { position: relative; inset: auto; width: 100%; height: auto; max-width: 100%; mask-image: none; }
+  .scrolling-site .product-page .hero h1 { font-size: clamp(36px, 7vw, 60px); }
+  .scrolling-site .studio-panel { min-height: 0; }
+  .scrolling-site .panel-copy,
+  .scrolling-site .rear-panel .panel-copy { width: 100%; max-width: none; padding: 48px 24px 24px; }
+  .scrolling-site .section-heading { font-size: clamp(34px, 7vw, 52px); }
+  .scrolling-site .engineering-page { min-height: 0; padding: 48px 24px; gap: 28px; }
+  .scrolling-site .engineering-intro .section-heading { font-size: 42px; }
+  .scrolling-site .mosaic-page { min-height: 0; padding: 48px 24px; gap: 28px; }
+  .scrolling-site .mosaic-heading .section-heading { font-size: 46px; margin: 14px 0 18px; }
+  .scrolling-site .mosaic-heading .section-heading br { display: block; }
+  .scrolling-site .mosaic-heading .section-heading span { margin-left: 0; }
+  .scrolling-site .studio-mosaic { min-height: 0; }
+  .scrolling-site .mosaic-news h3 { font-size: 52px; }
+  .scrolling-site .mosaic-sports h3 { font-size: 34px; }
+  .scrolling-site .mosaic-stage h3 { font-size: 30px; }
+  .scrolling-site .mosaic-public h3 { font-size: 34px; }
+  .scrolling-site #about { align-items: stretch; }
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  .scrolling-site .studio-panel { display: flex; flex-direction: column; min-height: 0; }
+  .scrolling-site .panel-copy,
+  .scrolling-site .rear-panel .panel-copy { width: 100%; max-width: none; padding: 48px 4vw 32px; }
+  .scrolling-site .panel-scene,
+  .scrolling-site .rear-panel .panel-scene {
+    position: relative; order: 2; width: 100%; height: auto;
+    aspect-ratio: 1672 / 941; mask-image: none;
+  }
+  .scrolling-site #about { align-items: stretch; }
+}

@@ -1,28 +1,47 @@
 from pathlib import Path
 import re
-root=Path(__file__).resolve().parent
-html=(root/'src/approved-page.html').read_text()
-head=html.split('<body>')[0]
-header=re.search(r'<header>.*?</header>',html,re.S).group()
-footer=re.search(r'<footer.*?</footer>',html,re.S).group()
-dialog=html[html.index('<dialog'):html.index('</body>')]
-hero=html[html.index('<section class="hero"'):html.index('<section class="local"')]
-local=html[html.index('<section class="local"'):html.index('<div class="technical"')]
-technical=html[html.index('<div class="technical"'):html.index('<section class="use-cases"')]
-cases=html[html.index('<section class="use-cases"'):html.index('</main>')]
-links={'#top':'index.html','#product':'index.html','#local':'solutions.html','#workflow':'technology.html','#use-cases':'use-cases.html','#about':'about.html'}
-def nav(s,active):
- for a,b in links.items():s=s.replace('href="'+a+'"','href="'+b+'"')
- s=s.replace('href="'+active+'">','href="'+active+'" aria-current="page">')
- return s
-local=(root/'src/pages/solutions.html').read_text()
-technical=(root/'src/pages/technology.html').read_text()
-cases=(root/'src/pages/use-cases.html').read_text()
-about=(root/'src/pages/about.html').read_text()
-controls='''<div class="slideshow-controls" aria-label="Page slideshow" hidden><button type="button" data-slide="previous" aria-label="Previous page">←</button><span class="slide-position" aria-live="off">1 / 5</span><button type="button" data-slide="next" aria-label="Next page">→</button><button type="button" class="play-toggle" aria-pressed="false">Pause slideshow</button></div>'''
-pages=[('index.html','Product',hero,'product-page'),('solutions.html','Solutions',local,'solutions-page'),('technology.html','Technology',technical,'technology-page'),('use-cases.html','Use Cases',cases,'use-cases-page'),('about.html','About',about,'about-page-wrapper')]
-for filename,title,content,cls in pages:
- content=nav(content,filename)
- out=head.replace('<title>Wave22 Labs — דבראLIVE</title>',f'<title>{title} — Wave22 Labs | דבראLIVE</title>')+'<body><a class="skip" href="#main">Skip to content</a><div class="site" id="top">'+nav(header,filename)+f'<main id="main" class="{cls}">'+content+'</main>'+controls+nav(footer,filename)+'</div>'+dialog+'</body></html>'
- (root/'out'/filename).write_text(out)
-print('Built 5 pages')
+
+root = Path(__file__).resolve().parent
+html = (root / 'src/approved-page.html').read_text(encoding='utf-8')
+head = html.split('<body>')[0]
+header = re.search(r'<header>.*?</header>', html, re.S).group()
+footer = re.search(r'<footer.*?</footer>', html, re.S).group().replace('id="about"', 'id="footer"')
+dialog = html[html.index('<dialog'):html.index('</body>')]
+hero = html[html.index('<section class="hero"'):html.index('<section class="local"')]
+hero = hero.replace('id="product"', '')
+links = {'index.html': '#product', 'solutions.html': '#solutions', 'technology.html': '#technology', 'use-cases.html': '#use-cases', 'about.html': '#about', '#local': '#solutions', '#workflow': '#technology'}
+
+def anchors(content):
+    for old, new in links.items():
+        content = content.replace(f'href="{old}"', f'href="{new}"')
+    return content
+
+sections = [f'<section id="product" class="product-page scroll-section" aria-labelledby="hero-title">{hero}</section>']
+for name in ['solutions', 'technology', 'use-cases', 'about']:
+    content = (root / f'src/pages/{name}.html').read_text(encoding='utf-8')
+    content = content.replace('page-title', f'{name}-title')
+    content = re.sub(r'<(/?)h2\b', r'<\1h3', content)
+    content = content.replace('<h1 ', '<h2 class="section-heading" ').replace('</h1>', '</h2>')
+    content = content.replace('<section ', f'<section id="{name}" ', 1)
+    content = content.replace('class="', 'class="scroll-section ', 1)
+    content = content.replace('<img ', '<img loading="lazy" decoding="async" ')
+    sections.append(content)
+
+page = (head + '<body class="scrolling-site"><a class="skip" href="#main">Skip to content</a>'
+        '<div class="site" id="top">' + header
+        + '<main id="main" class="single-page">' + ''.join(sections) + '</main>'
+        + footer + '</div>' + dialog + '</body></html>')
+(root / 'out/index.html').write_text(anchors(page), encoding='utf-8')
+
+# Keep previously shared URLs working at their corresponding sections.
+for name in ['solutions', 'technology', 'use-cases', 'about']:
+    target = f'index.html#{name}'
+    redirect = (f'<!doctype html><html lang="en"><head><meta charset="utf-8">'
+                f'<meta name="viewport" content="width=device-width,initial-scale=1">'
+                f'<meta http-equiv="refresh" content="0;url={target}">'
+                f'<title>Wave22 Labs — {name.replace("-", " ").title()}</title>'
+                f'<link rel="canonical" href="{target}"></head><body>'
+                f'<p><a href="{target}">Continue to the {name.replace("-", " ")} section.</a></p>'
+                f'<script>location.replace("{target}");</script></body></html>')
+    (root / f'out/{name}.html').write_text(redirect, encoding='utf-8')
+print('Built one scrolling page and four legacy redirects')
