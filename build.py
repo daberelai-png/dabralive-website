@@ -71,7 +71,7 @@ class HebrewPage(HTMLParser):
         value = escape(translated)
         if self.tags and self.tags[-1] not in ['title', 'script', 'style']:
             chunks = re.split(r'([A-Za-z0-9][A-Za-z0-9 /–.()%+—-]*[A-Za-z0-9%)]|[A-Za-z0-9])', translated)
-            value = ''.join('<bdi dir="ltr">' + escape(v) + '</bdi>' if i % 2 else escape(v) for i,v in enumerate(chunks))
+            value = ''.join('<bdi dir="ltr" lang="en">' + escape(v) + '</bdi>' if i % 2 else escape(v) for i,v in enumerate(chunks))
         self.parts.append(data[:len(data)-len(data.lstrip())] + value + data[len(data.rstrip()):] if key else data)
 
 he_source = page.replace(switch, '<a class="language-switch" href="index.html" lang="en" hreflang="en" aria-label="Switch to English">English <span aria-hidden="true">/ עברית</span></a>')

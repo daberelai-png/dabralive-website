@@ -321,3 +321,12 @@ html[lang=he] .hero-details{font-size:13px}
 .contact-links{display:flex;justify-content:center;gap:24px;width:100%;font-size:14px;color:#99dff5}
 .contact-links a{padding:10px 0;text-decoration:underline;text-underline-offset:4px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Accessibility review: visible skip link, stable artwork and generous targets. */
+.skip:focus{position:fixed;z-index:100;top:10px;left:10px}
+.studio-light,.mosaic-tile>img,.rear-highlight{animation:none!important}
+.site header nav a,.site footer nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}
+.site header .cta.small,.site header .language-switch{min-height:44px}
+.site header nav,.site footer nav{flex-wrap:wrap}
+a,button,[tabindex]{scroll-margin-top:calc(var(--header-height,108px) + 20px);scroll-margin-bottom:80px}
+@media(max-width:900px){.site header nav{column-gap:8px;row-gap:0}}
+@media(max-height:500px){.scrolling-site .site>header{position:relative}}

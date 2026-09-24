@@ -18,8 +18,8 @@ Technology tabs retain keyboard navigation. Rear-panel connection buttons suppor
 
 The supplied WAVE22labs JPEG remains the header/footer wordmark. Hero and use-case images include artwork approved through the design process. The rear image is a hardware concept, not a validated chassis or final bill of materials. Display outputs do not imply video input or SDI support.
 
-Technology copy describes the Hebrew audio-to-caption workflow and separates studio validation from supported product claims. No numeric performance guarantees are published. Integration and hardware require project-owner validation. See `docs/design/rear-hardware-layout.md` and `docs/audits/solution-motion/index.html` for previous design reviews.
+Technology copy describes the Hebrew audio-to-caption workflow and separates studio validation from supported product claims. Published latency and WER ranges are owner-supplied; independent benchmark evidence remains to be documented. Integration and hardware require project-owner validation. See `docs/design/rear-hardware-layout.md` and `docs/audits/solution-motion/index.html` for previous design reviews.
 
-The Studio Pilot button opens an availability notice; it does not collect or transmit leads. The ON AIR effect dims the photographic sign gently; reduced motion leaves it steady.
+Studio Pilot and contact links open mailto:info@wave22labs.com; support opens mailto:support@wave22labs.com. Decorative autoplay animations are disabled. The site includes a Hebrew RTL version at he.html with an English/Hebrew language switch. Accessibility statement and privacy policy remain pending verified company details and professional review; no full compliance claim is made.
 
 GitHub repository: https://github.com/daberelai-png/dabralive-website
