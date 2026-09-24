@@ -1,5 +1,8 @@
 from pathlib import Path
 import re
+import json
+from html import escape
+from html.parser import HTMLParser
 
 root = Path(__file__).resolve().parent
 html = (root / 'src/approved-page.html').read_text(encoding='utf-8')
@@ -31,7 +34,46 @@ page = (head + '<body class="scrolling-site"><a class="skip" href="#main">Skip t
         '<div class="site" id="top">' + header
         + '<main id="main" class="single-page">' + ''.join(sections) + '</main>'
         + footer + '</div>' + dialog + '</body></html>')
-(root / 'out/index.html').write_text(anchors(page), encoding='utf-8')
+page = anchors(page)
+switch = '<a class="language-switch" href="he.html" lang="he" hreflang="he" aria-label="מעבר לעברית">עברית <span aria-hidden="true">/ EN</span></a>'
+page = page.replace('<button class="cta small"', switch + '<button class="cta small"', 1)
+page = page.replace('</head>', '<link rel="alternate" hreflang="en" href="https://dabrelive.com/"><link rel="alternate" hreflang="he" href="https://dabrelive.com/he.html"></head>')
+(root / 'out/index.html').write_text(page, encoding='utf-8')
+
+translations = json.loads((root / 'src/he.json').read_text(encoding='utf-8'))
+class HebrewPage(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.parts = []
+        self.tags = []
+    def handle_decl(self, decl):
+        self.parts.append('<!' + decl + '>')
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == 'html': attrs.update(lang='he', dir='rtl')
+        if attrs.get('class') == 'language-switch':
+            attrs.update(href='index.html', lang='en', hreflang='en', **{'aria-label':'Switch to English'})
+        for key in ['aria-label', 'alt', 'title', 'content']:
+            if key in attrs and attrs[key] in translations: attrs[key] = translations[attrs[key]]
+        self.parts.append('<' + tag + ''.join(' ' + k + ('="' + escape(v, quote=True) + '"' if v is not None else '') for k,v in attrs.items()) + '>')
+        if tag not in ['meta','link','img','br','input','hr','source']: self.tags.append(tag)
+    def handle_endtag(self, tag):
+        self.parts.append('</' + tag + '>')
+        if self.tags and self.tags[-1] == tag: self.tags.pop()
+    def handle_data(self, data):
+        key = data.strip()
+        translated = translations.get(key, key)
+        # Isolate English terms and numeric ranges inside Hebrew sentences.
+        value = escape(translated)
+        if self.tags and self.tags[-1] not in ['title', 'script', 'style']:
+            chunks = re.split(r'([A-Za-z0-9][A-Za-z0-9 /–.()%+—-]*[A-Za-z0-9%)]|[A-Za-z0-9])', translated)
+            value = ''.join('<bdi dir="ltr">' + escape(v) + '</bdi>' if i % 2 else escape(v) for i,v in enumerate(chunks))
+        self.parts.append(data[:len(data)-len(data.lstrip())] + value + data[len(data.rstrip()):] if key else data)
+
+he_source = page.replace(switch, '<a class="language-switch" href="index.html" lang="en" hreflang="en" aria-label="Switch to English">English <span aria-hidden="true">/ עברית</span></a>')
+translator = HebrewPage()
+translator.feed(he_source)
+(root / 'out/he.html').write_text(''.join(translator.parts), encoding='utf-8')
 
 # Keep previously shared URLs working at their corresponding sections.
 for name in ['solutions', 'technology', 'use-cases', 'about']:

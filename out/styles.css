@@ -278,3 +278,39 @@ html { scroll-padding-top: calc(var(--header-height, 108px) + 16px); }
   .scrolling-site .datasheet .section-heading{font-size:24px}
   .datasheet-scroll .datasheet-table thead th,.datasheet-scroll .datasheet-table .datasheet-group th{font-size:15px}
 }
+
+/* Visible language control and Hebrew reading direction. */
+.site header .language-switch{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:8px 14px;border:1px solid #7dd3ee;border-radius:6px;background:#123647;color:#fff;font-size:16px;font-weight:700;white-space:nowrap;direction:ltr}
+.language-switch span{font-size:12px;color:#b7d5df}
+.language-switch:hover,.language-switch:focus-visible{background:#205269;outline:2px solid #9ee8ff;outline-offset:3px}
+@media(min-width:901px){.site > header{gap:18px}.site header .logo{width:230px;max-width:230px}.site header nav{gap:22px}}
+@media(max-width:1100px) and (min-width:901px){.site header nav{gap:12px}.site header .logo{width:180px}.site header .cta.small{padding-inline:14px}}
+@media(max-width:900px){
+ .site > header{grid-template-columns:minmax(0,1fr) auto}
+ .site header .language-switch{grid-column:2;grid-row:1}
+ .site header nav{grid-row:2;grid-column:1/-1;justify-content:space-between;gap:10px;width:100%}
+ .site header .cta.small{grid-column:1/-1;grid-row:3;justify-self:end;min-height:34px}
+ .site header .logo{width:200px}
+}
+html[lang=he] body{font-family:Arial,Helvetica,sans-serif}
+html[lang=he] h1,html[lang=he] h2,html[lang=he] h3,html[lang=he] .eyebrow,html[lang=he] .sectors,html[lang=he] .footer-message{letter-spacing:normal}
+html[lang=he] .hero,html[lang=he] .studio-panel{direction:ltr}
+html[lang=he] .hero-copy,html[lang=he] .panel-copy{direction:rtl;text-align:right}
+html[lang=he] .hero h1{line-height:1.12}
+html[lang=he] .hero-description,html[lang=he] .panel-intro{line-height:1.7}
+html[lang=he] .connection-choice{text-align:right;padding-inline:0 8px}
+html[lang=he] .datasheet-table th,html[lang=he] .datasheet-table td,html[lang=he] .datasheet-table caption{text-align:right}
+html[lang=he] .datasheet-classification{border-left:0;border-right:1px solid #365565}
+html[lang=he] .datasheet-table th:first-child{border-right:0;border-left:1px solid #365565}
+html[lang=he] .datasheet-table td:last-child,html[lang=he] .datasheet-table th:last-child{border-left:0;border-right:1px solid #365565}
+html[lang=he] .datasheet-table .datasheet-group th{border-inline:0}
+html[lang=he] .datasheet-value{display:inline-block;direction:ltr}
+html[lang=he] .mosaic-caption{text-align:right}
+html[lang=he] .text-link>span,html[lang=he] .cta>span{transform:scaleX(-1)}
+html[lang=he] .datasheet-classification span:last-child{text-align:start}
+@media(max-width:800px){html[lang=he] .datasheet-classification{border-right:0}}
+html[lang=he] .hero .eyebrow,html[lang=he] .hero-details{letter-spacing:normal}
+@media(min-width:901px){html[lang=he] .product-page .hero-copy{width:42%;max-width:600px;padding-right:20px}}
+.site header nav{font-size:14px}
+@media(max-width:900px){.site header nav{font-size:12px}}
+html[lang=he] .hero-details{font-size:13px}

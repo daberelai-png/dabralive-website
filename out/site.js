@@ -1,4 +1,10 @@
 (() => {
+  const languageSwitch = document.querySelector('.language-switch');
+  function syncLanguageLink() {
+    if (languageSwitch) languageSwitch.href = (document.documentElement.lang === 'he' ? 'index.html' : 'he.html') + location.hash;
+  }
+  syncLanguageLink();
+  window.addEventListener('hashchange', syncLanguageLink);
   const pilot = document.querySelector('#pilot');
   const header = document.querySelector('.site > header');
   const sections = [...document.querySelectorAll('main > section[id]')];
@@ -69,6 +75,7 @@
       if (section.getBoundingClientRect().top <= threshold) active = section;
     }
     if (!active) return;
+    if (languageSwitch) languageSwitch.href = (document.documentElement.lang === 'he' ? 'index.html' : 'he.html') + (location.hash || '#' + active.id);
     navLinks.forEach(link => {
       if (link.hash === `#${active.id}`) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
