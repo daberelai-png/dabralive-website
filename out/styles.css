@@ -262,3 +262,19 @@ html { scroll-padding-top: calc(var(--header-height, 108px) + 16px); }
 .datasheet-conditions{padding:18px 20px;border-top:1px solid #365565;background:#0d1d27;font-family:Arial,Helvetica,sans-serif}
 .datasheet-conditions p{font-size:13px;line-height:1.6;color:#b1c5d1;margin:0}.datasheet-conditions p+p{margin-top:8px}.datasheet-conditions strong{color:#d3e6f0}
 @media(max-width:900px){.datasheet-scroll-hint{display:block;padding:10px 12px;font:12px/1.5 Arial,Helvetica,sans-serif;color:#99dff5;border-bottom:1px solid #365565}.datasheet-scroll .datasheet-table{font-size:14px}.datasheet-scroll .datasheet-table tbody th[scope=row],.datasheet-scroll .datasheet-table thead th,.datasheet-scroll .datasheet-table .datasheet-group th{font-size:14px}.datasheet-conditions{padding:16px}}
+
+/* Readable technical typography, retaining the compact specification grid. */
+.datasheet{font-family:Arial,Helvetica,sans-serif}
+.scrolling-site .datasheet .section-heading{font-size:28px;letter-spacing:normal;line-height:1.25}
+.datasheet-kicker,.datasheet-classification span,.datasheet-table caption,.datasheet-footer{font-size:12px;letter-spacing:normal}
+.datasheet-description{font-size:15px;line-height:1.6}
+.datasheet-classification strong{letter-spacing:normal}
+.datasheet-scroll .datasheet-table{font-size:15px}
+.datasheet-scroll .datasheet-table tbody th[scope=row]{font-size:15px}
+.datasheet-scroll .datasheet-table thead th,.datasheet-scroll .datasheet-table .datasheet-group th{font-size:16px;letter-spacing:normal}
+.datasheet-scroll .datasheet-value{font-family:Consolas,"Liberation Mono","Courier New",monospace;font-size:16px;font-variant-numeric:tabular-nums}
+.datasheet-conditions p{font-size:14px;line-height:1.6}
+@media(max-width:900px){
+  .scrolling-site .datasheet .section-heading{font-size:24px}
+  .datasheet-scroll .datasheet-table thead th,.datasheet-scroll .datasheet-table .datasheet-group th{font-size:15px}
+}
